@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v1
       - run: npm install
       - name: Get issue data
-        uses: froi/add_invite_user@action_notification
+        uses: froi/add_invite_user@test_release
         with:
           PARSING_RULES_PATH: ".github/parsing_rules.json"
           USER_ROLE: "direct_member"
