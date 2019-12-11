@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - run: npm install
       - name: Get issue data
         uses: froi/add_invite_user@remove_username
         with:
