@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Get issue data
-        uses: froi/add_invite_user@release/v1
+        uses: froi/add_invite_user@8d82
         with:
           PARSING_RULES_PATH: ".github/parsing_rules.json"
           USER_ROLE: "direct_member"
