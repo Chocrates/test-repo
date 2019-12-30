@@ -14,3 +14,10 @@ jobs:
         id: get_input
         env:
           ADMIN_TOKEN: ${{secrets.ADMIN_TOKEN}}
+      - name: invite user
+        uses: froi/add_invite_user@release.v1
+        id: invite_user
+        with:
+          EMAIL: "${{ steps.get_input.outputs.<p>Email_of_Requester }}"
+        env: 
+          ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
