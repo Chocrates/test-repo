@@ -22,6 +22,6 @@ jobs:
         uses: froi/add_invite_user@change_input_release
         id: invite_user
         with:
-          EMAIL: '${{ steps.get_input.outputs['<p>Email of Requester'] }}'
+          EMAIL: "${{ steps.get_input.outputs['<p>Email of Requester'] }}"
         env: 
           ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
