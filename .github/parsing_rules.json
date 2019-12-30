@@ -1,8 +1,5 @@
 {
-  "username": {
-    "regex": "<p>Name of Requester:\\s*(?<username>.+?)<\\/p>"
-  },
-  "email": {
-    "regex": "<p>Email of Requester:\\s*(?<email>.+?)<\\/p>"
+  "emailRule": {
+    "regex": ".*@github.com$"
   }
 }
