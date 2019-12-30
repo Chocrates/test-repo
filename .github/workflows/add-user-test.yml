@@ -15,7 +15,7 @@ jobs:
         env:
           ADMIN_TOKEN: ${{secrets.ADMIN_TOKEN}}
       - name: invite user
-        uses: froi/add_invite_user@release.v1
+        uses: froi/add_invite_user@change_input_release
         id: invite_user
         with:
           EMAIL: "${{ steps.get_input.outputs.<p>Email_of_Requester }}"
