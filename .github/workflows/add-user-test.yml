@@ -16,8 +16,8 @@ jobs:
           ADMIN_TOKEN: ${{secrets.ADMIN_TOKEN}}
       - name: test
         run: |
-          echo ${{ steps.get_input.outputs }}
-          echo ${{ steps.get_input.outputs['<p>Email_of_Requester'] }}
+          echo "The outputs object: ${{ steps.get_input.outputs }}"
+          echo "The desired output: ${{ steps.get_input.outputs['<p>Email_of_Requester'] }}"
       - name: invite user
         uses: froi/add_invite_user@change_input_release
         id: invite_user
