@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: get email
-        uses: jasonmacgowan/actions-parse-issue
+        uses: jasonmacgowan/actions-parse-issue@master
         env:
           ADMIN_TOKEN: ${{secrets.ADMIN_TOKEN}}
