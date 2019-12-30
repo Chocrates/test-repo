@@ -11,5 +11,6 @@ jobs:
       - uses: actions/checkout@v1
       - name: get email
         uses: jasonmacgowan/actions-parse-issue@master
+        id: get_input
         env:
           ADMIN_TOKEN: ${{secrets.ADMIN_TOKEN}}
