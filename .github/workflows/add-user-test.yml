@@ -19,6 +19,6 @@ jobs:
         id: invite_user
         with:
           EMAIL: ${{ steps.get_input.outputs['<p>Email of Requester'] }}
-          amazing-creature: Octocat
+          PARSING_RULES_PATH: ".github/parsing_rules.json"
         env: 
           ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
