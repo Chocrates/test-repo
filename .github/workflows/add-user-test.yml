@@ -14,14 +14,11 @@ jobs:
         id: get_input
         env:
           ADMIN_TOKEN: ${{secrets.ADMIN_TOKEN}}
-      - name: test
-        run: |
-          echo "The outputs object: ${{ steps.get_input.outputs }}"
-          echo "The desired output: ${{ steps.get_input.outputs['<p>Email of Requester'] }}"
       - name: invite user
         uses: froi/add_invite_user@change_input_release
         id: invite_user
         with:
-          EMAIL: "${{ steps.get_input.outputs['<p>Email of Requester'] }}"
+          EMAIL: ${{ steps.get_input.outputs['<p>Email of Requester'] }}
+          amazing-creature: Octocat
         env: 
           ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
