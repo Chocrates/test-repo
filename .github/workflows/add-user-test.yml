@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Filter Labels
+        uses: chocrates/filter-label
+        with:
+          labels: 'New User, New Label'
+        id: filter_label
       - name: get email
         uses: jasonmacgowan/actions-parse-issue@master
         with:
