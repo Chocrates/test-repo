@@ -12,6 +12,7 @@ jobs:
       - name: Skip rest of em?
         run: |
           echo "Exiting and skipping the rest I hope"
+          echo ${{ github.context.payload.issue.labels }}
           exit 78
       - name: Filter Labels
         uses: chocrates/filter-label@release/v0.02
