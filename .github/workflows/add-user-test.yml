@@ -39,7 +39,7 @@ jobs:
         if: contains(github.event.issue.labels.*.name, 'new-user')
         uses: froi/add-comment-action@release/v1
         with:
-          message: ${{ steps.invite_user.message }}
-          status: ${{ steps.invite_user.stepStatus }}
+          message: ${{ steps.invite_user.outputs..message }}
+          status: ${{ steps.invite_user.outputs.stepStatus }}
         env: 
           GITHUB_TOKEN: ${{ secrets.ADMIN_TOKEN }}
