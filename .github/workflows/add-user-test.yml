@@ -28,9 +28,10 @@ jobs:
           ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
       - name: Comment on Issue
         if: contains(github.event.issue.labels.*.name, 'new-user')
-        uses: froi/add-comment-action@release/v1
+        uses: froi/add-comment-action@add_label_release
         with:
           message: ${{ steps.invite_user.outputs.message }}
           stepStatus: ${{ steps.invite_user.outputs.stepStatus }}
+          label: processed
         env: 
           GITHUB_TOKEN: ${{ secrets.ADMIN_TOKEN }}
