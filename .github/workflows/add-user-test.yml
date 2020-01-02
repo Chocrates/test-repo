@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: get email
-        uses: jasonmacgowan/actions-parse-issue@v1
+        uses: jasonmacgowan/actions-parse-issue@master
         with:
           extract_email: '<p>(.*)</p>'
         id: get_input
