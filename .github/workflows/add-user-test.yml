@@ -26,6 +26,13 @@ jobs:
           CONFIG_PATH: ".github/parsing_rules.json"
         env: 
           ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
+      - name: print output
+        env:
+          message: ${{ steps.invite_user.message }}
+          status: ${{ steps.invite_user.stepStatus }}
+        run: |
+          echo "Message $MESSAGE"
+          echo "Status $STATUS"
       - name: Comment on Issue
         if: contains(github.event.issue.labels.*.name, 'new-user')
         uses: froi/add-comment-action@release/v1
