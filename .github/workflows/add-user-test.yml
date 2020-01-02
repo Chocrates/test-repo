@@ -9,24 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-          LABELS: ${{ toJson(github.event.issue.labels.map(label => { return label.name } }})
-        run: |
-          echo "$GITHUB_CONTEXT"
-          echo "$LABELS"
-      - name: Skip rest of em?
-        run: |
-          echo "Exiting and skipping the rest I hope"
-          echo ${{ github.context.payload.issue.labels }}
-          exit 78
-      - name: Filter Labels
-        uses: chocrates/filter-label@release/v0.02
-        with:
-          labels: 'New User, New Label'
-        id: filter_label
       - name: get email
+        if: contains(github.event.issue.labels.*.name, 'new-user')
         uses: jasonmacgowan/actions-parse-issue@master
         with:
           extract_email: '<p>Email of Requester:\s*(.*)</p>'
@@ -34,6 +18,7 @@ jobs:
         env:
           ADMIN_TOKEN: ${{secrets.ADMIN_TOKEN}}
       - name: invite user
+        if: contains(github.event.issue.labels.*.name, 'new-user')
         uses: froi/add_invite_user@change_input_release
         id: invite_user
         with:
@@ -42,6 +27,7 @@ jobs:
         env: 
           ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
       - name: Comment on Issue
+        if: contains(github.event.issue.labels.*.name, 'new-user')
         uses: froi/add-comment-action@release/v1
         with:
           message: ${{ steps.get-issue-data.message }}
