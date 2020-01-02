@@ -30,9 +30,11 @@ jobs:
         env:
           message: ${{ steps.invite_user.message }}
           status: ${{ steps.invite_user.stepStatus }}
+          steps: ${{ toJson(steps) }}
         run: |
           echo "Message $MESSAGE"
           echo "Status $STATUS"
+          echo "$STEPS"
       - name: Comment on Issue
         if: contains(github.event.issue.labels.*.name, 'new-user')
         uses: froi/add-comment-action@release/v1
