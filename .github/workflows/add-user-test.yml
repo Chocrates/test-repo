@@ -25,7 +25,7 @@ jobs:
         env: 
           ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
       - name: Comment on Issue
-        uses: froi/add-comment-action@master
+        uses: froi/add-comment-action@release/v1
         with:
           message: ${{ steps.get-issue-data.message }}
           status: ${{ steps.get-issue-data.stepStatus }}
