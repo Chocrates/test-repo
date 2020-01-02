@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Skip rest of em?
+        run: |
+          echo "Exiting and skipping the rest I hope"
+          exit 78
       - name: Filter Labels
         uses: chocrates/filter-label@release/v0.02
         with:
