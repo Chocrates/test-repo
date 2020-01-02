@@ -12,7 +12,7 @@ jobs:
       - name: get email
         uses: jasonmacgowan/actions-parse-issue@master
         with:
-          extract_email: '<p>Email of Requester:(.*)</p>'
+          extract_email: '<p>Email of Requester:\s*(.*)</p>'
         id: get_input
         env:
           ADMIN_TOKEN: ${{secrets.ADMIN_TOKEN}}
