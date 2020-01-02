@@ -13,7 +13,7 @@ jobs:
         if: contains(github.event.issue.labels.*.name, 'new-user')
         uses: jasonmacgowan/actions-parse-issue@master
         with:
-          extract_email: '<p>Email of Requester:\s*(.*)</p>'
+          extract_email: '<p>Email of Requester:\s*(.*)</p><p>.*</p<p>.*</p>'
         id: get_input
         env:
           ADMIN_TOKEN: ${{secrets.ADMIN_TOKEN}}
@@ -26,15 +26,6 @@ jobs:
           CONFIG_PATH: ".github/parsing_rules.json"
         env: 
           ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
-      - name: print output
-        env:
-          message: ${{ steps.invite_user.message }}
-          status: ${{ steps.invite_user.stepStatus }}
-          steps: ${{ toJson(steps) }}
-        run: |
-          echo "Message $MESSAGE"
-          echo "Status $STATUS"
-          echo "$STEPS"
       - name: Comment on Issue
         if: contains(github.event.issue.labels.*.name, 'new-user')
         uses: froi/add-comment-action@release/v1
