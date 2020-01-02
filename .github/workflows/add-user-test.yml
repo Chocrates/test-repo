@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Filter Labels
-        uses: chocrates/filter-label@release/v0.01
+        uses: chocrates/filter-label@release/v0.02
         with:
           labels: 'New User, New Label'
         id: filter_label
