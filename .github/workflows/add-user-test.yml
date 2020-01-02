@@ -12,7 +12,10 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+          LABELS: ${{ toJson(github.event.issue.labels.map(label => { return label.name } }})
+        run: |
+          echo "$GITHUB_CONTEXT"
+          echo "$LABELS"
       - name: Skip rest of em?
         run: |
           echo "Exiting and skipping the rest I hope"
