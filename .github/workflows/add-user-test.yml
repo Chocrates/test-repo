@@ -24,3 +24,8 @@ jobs:
           CONFIG_PATH: ".github/parsing_rules.json"
         env: 
           ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
+      - name: Comment on Issue
+        uses: froi/add-comment-action@v1
+        with:
+          message: ${{ steps.get-issue-data.message }}
+          status: ${{ steps.get-issue-data.stepStatus }}
