@@ -35,3 +35,9 @@ jobs:
           label: processed
         env: 
           GITHUB_TOKEN: ${{ secrets.ADMIN_TOKEN }}
+      - name: Closes the issue
+        if: contains(github.event.issue.labels.*.name, 'new-user')
+        uses: chocrates/close-issue-action@release/v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.ADMIN_TOKEN }}
+     
